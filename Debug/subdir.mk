@@ -8,6 +8,7 @@ C_SRCS += \
 ../cycx3_uvc.c \
 ../cycx3_uvcdscr.c \
 ../cycx3_videostreaming.c \
+../cyfxgpioapp.c \
 ../cyfxtx.c 
 
 S_UPPER_SRCS += \
@@ -19,6 +20,7 @@ OBJS += \
 ./cycx3_uvcdscr.o \
 ./cycx3_videostreaming.o \
 ./cyfx_gcc_startup.o \
+./cyfxgpioapp.o \
 ./cyfxtx.o 
 
 C_DEPS += \
@@ -26,6 +28,7 @@ C_DEPS += \
 ./cycx3_uvc.d \
 ./cycx3_uvcdscr.d \
 ./cycx3_videostreaming.d \
+./cyfxgpioapp.d \
 ./cyfxtx.d 
 
 S_UPPER_DEPS += \

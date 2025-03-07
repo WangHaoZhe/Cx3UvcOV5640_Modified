@@ -37,7 +37,7 @@ cycx3_uvc.o: ../cycx3_uvc.c \
  c:\program\ files\ (x86)\cypress\ez-usb\ fx3\ sdk\1.3\fw_lib\1_3_5\inc\cyu3externcend.h \
  ../cycx3_videostreaming.h \
  c:\program\ files\ (x86)\cypress\ez-usb\ fx3\ sdk\1.3\fw_lib\1_3_5\inc\cyu3imagesensor.h \
- ../cycx3gpifwaveform.h
+ ../cycx3gpifwaveform.h ../cyfxgpioapp.h
 c:\program\ files\ (x86)\cypress\ez-usb\ fx3\ sdk\1.3\fw_lib\1_3_5\inc\cyfxversion.h:
 c:\program\ files\ (x86)\cypress\ez-usb\ fx3\ sdk\1.3\fw_lib\1_3_5\inc\cyu3system.h:
 c:\program\ files\ (x86)\cypress\ez-usb\ fx3\ sdk\1.3\fw_lib\1_3_5\inc\cyu3types.h:
@@ -77,3 +77,4 @@ c:\program\ files\ (x86)\cypress\ez-usb\ fx3\ sdk\1.3\fw_lib\1_3_5\inc\cyu3exter
 ../cycx3_videostreaming.h:
 c:\program\ files\ (x86)\cypress\ez-usb\ fx3\ sdk\1.3\fw_lib\1_3_5\inc\cyu3imagesensor.h:
 ../cycx3gpifwaveform.h:
+../cyfxgpioapp.h:

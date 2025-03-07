@@ -42,6 +42,7 @@
 #include "cyu3mipicsi.h"
 #include "cyu3imagesensor.h"
 #include "cycx3gpifwaveform.h"
+#include "cyfxgpioapp.h"
 
 static CyU3PThread cx3AppThread;               /* Application thread used for streaming from MIPI interface to USB */
 static CyU3PEvent  glCx3Event;                 /* Application Event Group */
@@ -1040,12 +1041,16 @@ CyCx3AppInit (
     }
 
     /* Initialize GPIO module. */
+#ifdef GPIO_ENABLE
+    CyFxGpioInit ();
+#else
     status = CyU3PMipicsiInitializeGPIO ();
     if( status != CY_U3P_SUCCESS)
     {
         CyU3PDebugPrint (4, "\n\rAppInit:GPIOInit Err = 0x%x",status);
         CyCx3AppErrorHandler(status);
     }
+#endif
 
     /* Initialize the PIB block */
     status = CyU3PMipicsiInitializePIB ();
@@ -1323,6 +1328,11 @@ CyCx3AppInit (
     status =  CyU3PMipicsiInit();
     if (status != CY_U3P_SUCCESS)
     {
+#ifdef GPIO_ENABLE
+    	if (status == CY_U3P_ERROR_TIMEOUT){
+    		CyU3PGpioSetValue (24, CyTrue);
+    	}
+#endif
         CyU3PDebugPrint (4, "\n\rAppInit:MipicsiInit Err = 0x%x", status);
         CyCx3AppErrorHandler(status);
     }
@@ -1436,6 +1446,19 @@ CyCx3AppThread_Entry (
 
     for (;;)
     {
+#ifdef GPIO_ENABLE
+    	/* Set the GPIO 24 to high */
+    	if (CyU3PGetTime() % 1000 == 0)
+    	{
+    	    CyU3PGpioSetValue (24, CyTrue);
+    	}
+
+    	/* Set the GPIO 24 to low */
+    	if (CyU3PGetTime() % 1000 == 200)
+    	{
+    	    CyU3PGpioSetValue (24, CyFalse);
+    	}
+#endif
 
 #ifdef PRINT_FRAME_INFO
 		if (glPrintFlag == 1)

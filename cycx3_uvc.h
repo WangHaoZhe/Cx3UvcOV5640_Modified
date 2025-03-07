@@ -160,6 +160,8 @@
 #define CY_U3P_CSI_GPIF_24BIT_PARAM         (0x00000009)
 #define CY_U3P_CSI_GPIF_32BIT_PARAM         (0x0000006C)
 
+#define GPIO_ENABLE
+
 typedef enum CyU3PGpifBusWidth_t
 {
     CY_U3P_GPIF_BUS_8 = 0,           /**< Use an 8-Bit data bus */
